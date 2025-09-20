@@ -2,7 +2,13 @@ import streamlit as st
 import pandas as pd
 from datetime import date, timedelta
 from dateutil import parser as dtparser
-import yfinance as yf
+
+try:
+    import yfinance as yf
+except ImportError as e:
+    st.error(f"Failed to import yfinance: {e}")
+    st.error("Please ensure yfinance is installed: pip install yfinance")
+    st.stop()
 
 st.set_page_config(page_title="Dividend Yield Calculator", page_icon="💸", layout="centered")
 
