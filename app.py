@@ -37,7 +37,7 @@ def first_trading_price_on_or_after(df_prices: pd.DataFrame, start_dt: date):
     if row.empty:
         return None, None
     r0 = row.iloc[0]
-    return r0["DateOnly"], float(r0["Close"])
+    return r0["DateOnly"], float(r0["Close"].iloc[0])
 
 def compute_yield_on_cost(ticker: str, invest_dt: date, end_dt: date):
     # get prices: search a small window before invest_dt to ensure availability
