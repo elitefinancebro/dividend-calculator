@@ -12,7 +12,6 @@ A simple, accurate **dividend yield & cash-flow calculator** that pulls historic
 * **Ticker + Purchase Date input**: calculates dividends collected only if the position was held **before the ex-dividend date**.
 * **Accurate cashflows**: sums paid dividends over the selected holding period.
 * **Dividend yield metrics**: absolute dividend income, simple dividend yield, and yield-on-cost.
-* **(Optional) DRIP simulation**: reinvest dividends to estimate additional shares over time.
 * **Clear audit trail**: shows all dividend events used in the calculation (ex-date, pay date, amount).
 * **Fast, friendly UI**: Streamlit app with instant recalculation on input change.
 
