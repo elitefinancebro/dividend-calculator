@@ -2,13 +2,23 @@ import streamlit as st
 import pandas as pd
 from datetime import date, timedelta
 from dateutil import parser as dtparser
+import subprocess
+import sys
+
+# Install yfinance at runtime if not available
+def install_package(package):
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    except subprocess.CalledProcessError:
+        st.error(f"Failed to install {package}")
+        st.stop()
 
 try:
     import yfinance as yf
-except ImportError as e:
-    st.error(f"Failed to import yfinance: {e}")
-    st.error("Please ensure yfinance is installed: pip install yfinance")
-    st.stop()
+except ImportError:
+    st.info("Installing yfinance...")
+    install_package('yfinance')
+    import yfinance as yf
 
 st.set_page_config(page_title="Dividend Yield Calculator", page_icon="💸", layout="centered")
 
